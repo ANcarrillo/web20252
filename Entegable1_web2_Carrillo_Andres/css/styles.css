@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    height: 10vh;
+    background: rgb(72, 146, 110);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h2 {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* Main layout */
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". bibliografia .";
+    padding: 20px;
+    min-height: calc(100vh - 20vh);
+}
+
+#bibliografia {
+    grid-area: bibliografia;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal de biografía */
+.yo {
+    width: 100%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.95);
+    border: solid 1px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: grid;
+    gap: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 400px;
+    grid-template-areas:
+        "title"
+        "content"
+        "image";
+}
+
+/* Título */
+#title {
+    grid-area: title;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    padding: 40px;
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin: 0;
+}
+
+/* Contenido */
+#content {
+    grid-area: content;
+    padding: 40px;
+    background: white;
+    overflow: auto;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+#content p {
+    background-color: transparent;
+    height: auto;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Imagen */
+#image {
+    grid-area: image;
+    background:url('/img/foto.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+/* Footer */
+footer {
+    height: 10vh;
+    background: rgba(57, 114, 86, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* TABLET: 479px - 1023px */
+@media (min-width: 479px) and (max-width: 1023px) {
+    body {
+        font-size: 20px;
+    }
+
+    .yo {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows:  1fr;
+        grid-template-areas:
+            "title image"
+            "content image";
+        gap: 0;
+        min-height: 70vh;
+    }
+
+    #title {
+        padding: 30px 20px;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #content {
+        padding: 30px;
+        font-size: 1rem;
+    }
+
+    #image {
+        height: 100%;
+        min-height: 500px;
+    }
+
+    main {
+        padding: 30px;
+    }
+}
+
+/* DESKTOP: 1023px+ */
+@media (min-width: 1023px) {
+    
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+         "biografia";
+          
+        
+    }
+
+    #bibliografia {
+        grid-area: bibliografia;
+    }
+
+    .yo {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "image title"
+            "image content";
+        gap: 0;
+        min-height: 80vh;
+        max-width: 1400px;
+    }
+
+    #title {
+        padding: 60px 40px;
+        font-size: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #content {
+        padding: 60px;
+        font-size: 1.2rem;
+    }
+
+    #image {
+        height: 100%;
+        min-height: 600px;
+    }
+}
+
+
